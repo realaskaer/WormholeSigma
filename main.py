@@ -74,8 +74,6 @@ async def main():
         proxy = proxies[index].strip()
         email = email.strip()
 
-        await asyncio.sleep(random.randint(*SLEEP_TIME))
-
         while True:
             try:
                 await send_airtable(email, username, proxy)
@@ -85,6 +83,8 @@ async def main():
                 cprint(f"Will try change to change proxy. Old: {proxy}", 'light_cyan')
                 proxy = random.choice(proxies)
                 cprint(f"Successfully changed proxy. New proxy: {proxy}", 'light_cyan')
+
+        await asyncio.sleep(random.randint(*SLEEP_TIME))
 
     cprint('Successfully submitted all your emails!', 'light_green')
 
