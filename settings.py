@@ -1,0 +1,2 @@
+USE_PROXY = True
+SLEEP_TIME = (10, 20)
